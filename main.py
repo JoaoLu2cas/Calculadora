@@ -1,4 +1,5 @@
 import random
+import os
 
 def play():
     win = 0
@@ -18,6 +19,7 @@ Feito por : João Luccas Marques')
             break
         elif user not in options :
             print('Escolha r, p, s .')
+            
             continue
         print('JO...')
         print('KEM...')
@@ -26,21 +28,29 @@ Feito por : João Luccas Marques')
 
         if computer == user :
             tie += 1
-            print('Empate')
-            print(f'O computador escolheu o mesmo que você "{computer}".')
-            
-            
+            print(
+                 '┌─┐┌┬┐┌─┐┌─┐┌┬┐┌─┐\n' 
+                  '├┤ │││├─┘├─┤ │ ├┤ \n' 
+                  '└─┘┴ ┴┴  ┴ ┴ ┴ └─┘ \n'
+            )
+            print(f'O computador escolheu o mesmo que você "{computer}".')         
 
         elif is_win(user, computer):
             win += 1
-            print('Você ganhou!')
+            print('┬  ┬┌─┐┌┐┌┌─┐┌─┐┬ ┬\n'
+                  '└┐┌┘├┤ ││││  ├┤ │ │\n'
+                   ' └┘ └─┘┘└┘└─┘└─┘└─┘\n')
             print(f'O computador escolheu "{computer}".')
           
         else:
             lose += 1
-            print('Você perdeu!')
+            print(
+                 '┌─┐┌─┐┬─┐┌┬┐┌─┐┬ ┬ \n'
+                 '├─┘├┤ ├┬┘ ││├┤ │ │\n' 
+                 '┴  └─┘┴└──┴┘└─┘└─┘\n'
+            )
             print(f'O computador escolheu "{computer}".')
-
+        
         continue
 def is_win(player, opponent):
     if (player == 'r'and opponent =='s' or player == 'p'and opponent == 'r' \
